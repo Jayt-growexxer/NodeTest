@@ -8,9 +8,9 @@ const {
 } = require("../controller/ordersController");
 const { protect } = require("../middleware/protect");
 
-router.post("/orders", createOrder);
-router.patch("/orders/:id", updateOrderStatus);
-router.get("/orders/:id", getOrderById);
-router.get("/orders", getAllOrders);
+router.post("/orders", protect, createOrder);
+router.patch("/orders/:id", protect, updateOrderStatus);
+router.get("/orders/:id", protect, getOrderById);
+router.get("/orders", protect, getAllOrders);
 
 module.exports = router;

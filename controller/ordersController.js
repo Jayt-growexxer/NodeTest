@@ -9,7 +9,7 @@ const { errorHandler, responseMessage } = require("../utils/errorHandler");
 
 exports.createOrder = async (req, res) => {
   try {
-    const userId = "67d038a73a06554b1db90d4d";
+    const userId = req.user.id;
 
     // Ensure userId is defined
     const { products } = req.body;

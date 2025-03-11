@@ -2,6 +2,7 @@ const User = require("../models/userSchema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
+// Create User
 exports.createUser = async (data) => {
   try {
     const { name, email, password, confirmPassword, userType } = data;
@@ -28,17 +29,19 @@ exports.createUser = async (data) => {
       userType,
     });
 
+    // Generate JWT Token
     const token = jwt.sign({ id: user._id }, process.env.SECRET, {
       expiresIn: "90d",
     });
 
-    return { user, token }; // ✅ Now returning data
+    return { user, token };
   } catch (error) {
     console.error("Error in createUser:", error.message);
-    throw error; // ❌ Don't swallow errors, throw them
+    throw error;
   }
 };
 
+// Sign in User
 exports.signin = async (data) => {
   try {
     const { email, password } = data;
@@ -48,15 +51,22 @@ exports.signin = async (data) => {
     }
 
     const user = await User.findOne({ email }).select("+password");
-    if (!user || !(await bcrypt.compare(password, user.password))) {
+
+    if (!user) {
       throw new Error("Invalid email or password");
     }
 
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      throw new Error("Invalid email or password");
+    }
+
+    // Generate JWT Token
     const token = jwt.sign({ id: user._id }, process.env.SECRET, {
       expiresIn: "90d",
     });
 
-    return { user, token }; // ✅ Return user and token
+    return { user, token };
   } catch (error) {
     console.error("Error in signin:", error.message);
     throw error;
