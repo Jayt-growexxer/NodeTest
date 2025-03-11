@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "30ee6481-935f-4e16-8025-ad8f24e76c69",
+		"name": "NodeTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42854067"
+	},
+	"item": [
+		{
+			"name": "GetAllProducts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"name\": \"Laptop\",\n\n\"price\": 1200,\n\n\"category\": \"Electronics\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6010/v0/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6010",
+					"path": [
+						"v0",
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductCreate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Book",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A book have many uses",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "900",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Stationary",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1effe594-660a-4ce0-9952-c19e9c6ea0a8",
+								"/home/growlt318/Pictures/Screenshots/Screenshot from 2025-02-25 18-36-32.png"
+							]
+						},
+						{
+							"key": "",
+							"type": "file",
+							"src": "/home/growlt318/Pictures/Screenshots/Screenshot from 2025-02-25 18-36-32.png",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/v0/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v0",
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProduct",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"price\": 199,\n  \"description\": \"Updated product description\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v0/products/67d006fa4d6e3dfbc282862b\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v0",
+						"products",
+						"67d006fa4d6e3dfbc282862b\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReviewsAdd",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add Orders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2VlZjg3ODExZTY1OTBlNjU5MjRhNiIsImlhdCI6MTc0MTY5ODI0OSwiZXhwIjoxNzQ5NDc0MjQ5fQ.OxTSQpW_snpQzGbBttP2MDOSNVO1D5ohJ0iYg7Eqtlk",
+						"type": "text"
+					}
+				]
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatetheStatusOrder",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrders",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllorders",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "userregister",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "userlogin",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
