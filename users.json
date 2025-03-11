@@ -1,0 +1,9 @@
+{  "activeUsers": [ 
+    {            "userId": 1,            "fullName": "John Doe",            "primaryRole": "Admin",            "email": "john.doe@example.com",            
+       "lastLogin": "2025-01-15",            "isActive": true        } 
+   ],    
+ "inactiveUsers": [ 
+   {            "userId": 2,            "fullName": "Jane Smith",            "primaryRole": "Viewer",            "email": "jane.smith@example.com",            
+      "lastLogin": "2025-01-18",            "isActive": false        } 
+  ]
+}
